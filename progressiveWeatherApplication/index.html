@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/public/images/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-vite-app"
+    />
+    <link rel="apple-touch-icon" href="./public/images/logo.png">
+    <link rel="manifest" href="/public/manifest.json" />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./serviceworker.ts').then(registration => {
+            console.log('Service worker registered with scope:', registration.scope);
+          }).catch(err => {
+            console.log('Service worker registration failed:', err);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
